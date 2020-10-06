@@ -6,7 +6,7 @@ const SVGO = require('svgo')
 
 module.exports = ({ rule = '**/*.svg' , ...config } = {}) => ({ registerFileHandler, registerTemplateHelper }) => {
 
-  const svgo = new SVGO({});
+  const svgo = new SVGO(config);
   const svgs = {};
 
   registerFileHandler(rule, async ({ path, file }) => {
