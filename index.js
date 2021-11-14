@@ -10,7 +10,7 @@ module.exports = ({ rule = '**/*.svg' , ...config } = {}) => ({ registerFileHand
   const svgs = {};
 
   registerFileHandler(rule, async ({ path, file }) => {
-    const result = await svgo.optimize(file);
+    const result = await svgo.optimize(file, {path});
     svgs[p.join('/', path)] = result.data;
     return {
       path,
